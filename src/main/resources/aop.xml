@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+">
+    <bean id="targetObject" class="com.wordpress.bmadi.belajar.spring.aop.kedua.TargetObject">
+    </bean>
+    <bean id="adviceInfoArgumen" class="com.wordpress.bmadi.belajar.spring.aop.kedua.InfoArgumen">
+    </bean>
+    <bean id="proxyObject" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyTargetClass" value="true"/>
+        <property name="target" ref="targetObject">
+        </property>           
+        <property name="interceptorNames">
+            <list>
+                <value>adviceInfoArgumen</value>
+            </list>
+        </property>
+    </bean>
+
+</beans>
